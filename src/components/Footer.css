@@ -1,29 +1,22 @@
 .footer {
-  padding: 2rem;
-  background: #333;
-  color: #fff;
+  padding: 2rem 0;
+  background: var(--bg-alt);
+  color: var(--text);
   text-align: center;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .social-links {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .social-links a {
-  color: #fff;
+  color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #00d4ff;
+  color: var(--primary);
 }
