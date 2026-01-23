@@ -1,13 +1,13 @@
 .projects {
-  padding: 5rem 2rem;
-  background: #fff;
+  padding: 5rem 0;
+  background: var(--bg);
 }
 
 .projects h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #333;
+  color: var(--text);
 }
 
 .projects-grid {
@@ -17,7 +17,7 @@
 }
 
 .project-card {
-  background: #f9f9f9;
+  background: var(--bg-alt);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -40,24 +40,24 @@
 .project-card h3 {
   padding: 1rem;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--text);
 }
 
 .project-card p {
   padding: 0 1rem;
-  color: #555;
+  color: var(--text-alt);
 }
 
 .project-link {
   display: block;
   padding: 1rem;
   text-align: center;
-  background: #667eea;
+  background: var(--primary);
   color: #fff;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
 .project-link:hover {
-  background: #5a67d8;
+  background: var(--secondary);
 }

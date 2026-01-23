@@ -1,7 +1,12 @@
 import React from "react";
 import "./Header.css";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  darkMode: boolean;
+  setDarkMode: (mode: boolean) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
   return (
     <header className="header">
       <nav className="nav">
@@ -23,6 +28,12 @@ const Header: React.FC = () => {
             <a href="#contact">Contact</a>
           </li>
         </ul>
+        <button
+          className="dark-mode-toggle"
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
       </nav>
     </header>
   );
