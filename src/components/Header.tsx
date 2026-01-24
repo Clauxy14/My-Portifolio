@@ -1,31 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 interface HeaderProps {
-  darkMode: boolean;
-  setDarkMode: (mode: boolean) => void;
+  darkMode?: boolean;
+  setDarkMode?: (mode: boolean) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
+const Header: React.FC<HeaderProps> = ({
+  darkMode: propDarkMode,
+  setDarkMode: propSetDarkMode,
+}) => {
+  const [localDarkMode, setLocalDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved ? JSON.parse(saved) : false;
+  });
+
+  const darkMode = propDarkMode !== undefined ? propDarkMode : localDarkMode;
+  const setDarkMode = propSetDarkMode || setLocalDarkMode;
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
   return (
     <header className="header">
       <nav className="nav">
         <div className="logo">Your Name</div>
         <ul className="nav-links">
           <li>
-            <a href="#hero">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#about">About</a>
+            <Link to="/blog">Blog</Link>
           </li>
           <li>
-            <a href="#projects">Projects</a>
-          </li>
-          <li>
-            <a href="#skills">Skills</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
+            <Link to="/chatbot">Chatbot</Link>
           </li>
         </ul>
         <button
