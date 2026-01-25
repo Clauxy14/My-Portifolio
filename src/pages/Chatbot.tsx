@@ -185,7 +185,9 @@ const Chatbot: React.FC = () => {
     },
   ]);
   const [input, setInput] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<string[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -233,7 +235,6 @@ const Chatbot: React.FC = () => {
   const generateResponse = (userMessage: string, history: string[]): string => {
     const lowerMessage = userMessage.toLowerCase();
     let category = "default";
-    let context = "";
 
     // Determine category based on keywords
     if (
@@ -242,22 +243,18 @@ const Chatbot: React.FC = () => {
       )
     ) {
       category = "greetings";
-      context = "greeting";
     } else if (
       lowerMessage.match(/\b(portfolio|projects|work|showcase|examples)\b/)
     ) {
       category = "portfolio";
-      context = "portfolio";
     } else if (
       lowerMessage.match(/\b(skills|tech|technologies|expertise|experience)\b/)
     ) {
       category = "skills";
-      context = "skills";
     } else if (
       lowerMessage.match(/\b(contact|reach|connect|email|message)\b/)
     ) {
       category = "contact";
-      context = "contact";
     }
 
     // Check conversation history for context
@@ -267,7 +264,6 @@ const Chatbot: React.FC = () => {
       lowerMessage.includes("more")
     ) {
       category = "portfolio";
-      context = "follow_up";
     }
 
     const templates =
