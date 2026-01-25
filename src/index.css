@@ -17,7 +17,7 @@ html {
   --border: #e0e0e0;
   --shadow: rgba(0, 0, 0, 0.1);
   --shadow-hover: rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -54,9 +54,14 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
- 
+
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 50%, var(--bg) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--bg) 0%,
+    var(--bg-alt) 50%,
+    var(--bg) 100%
+  );
   background-size: 200% 200%;
   animation: bgShift 10s ease-in-out infinite;
   color: var(--text);
@@ -92,7 +97,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-input, textarea {
+input,
+textarea {
   font-family: inherit;
   font-size: 1rem;
   border: 2px solid var(--border);
@@ -100,19 +106,28 @@ input, textarea {
   padding: 0.75rem;
   background: var(--bg);
   color: var(--text);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 @keyframes bgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (prefers-color-scheme: light) {
