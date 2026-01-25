@@ -1,5 +1,5 @@
-import React from 'react';
-import './PostCard.css';
+import React from "react";
+import "./PostCard.css";
 
 interface Post {
   id: number;
@@ -26,15 +26,19 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       </div>
       <div className="post-content">
         <div className="post-tags">
-          {post.tags.map(tag => (
-            <span key={tag} className="tag">{tag}</span>
+          {post.tags.map((tag) => (
+            <span key={tag} className="tag">
+              {tag}
+            </span>
           ))}
         </div>
         <h3 className="post-title">{post.title}</h3>
         <p className="post-excerpt">{post.excerpt}</p>
         <div className="post-meta">
           <span className="post-date">{post.date}</span>
-          <a href="#" className="read-more">Read More →</a>
+          <a href="#" className="read-more">
+            Read More →
+          </a>
         </div>
       </div>
     </article>

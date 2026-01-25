@@ -22,7 +22,8 @@ const posts: Post[] = [
     title: "Getting Started with React",
     date: "2026-01-20",
     excerpt: "Learn the basics of React and how to build your first component.",
-    content: "React is a popular JavaScript library for building user interfaces...",
+    content:
+      "React is a popular JavaScript library for building user interfaces...",
     image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400",
     tags: ["React", "JavaScript", "Frontend"],
     category: "React",
@@ -32,7 +33,8 @@ const posts: Post[] = [
     id: 2,
     title: "Modern CSS Techniques",
     date: "2026-01-15",
-    excerpt: "Explore advanced CSS features like Grid, Flexbox, and animations.",
+    excerpt:
+      "Explore advanced CSS features like Grid, Flexbox, and animations.",
     content: "CSS has evolved significantly with new layout methods...",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400",
     tags: ["CSS", "Web Design", "Frontend"],
@@ -87,7 +89,8 @@ const posts: Post[] = [
     id: 7,
     title: "JavaScript ES6+ Features",
     date: "2025-12-15",
-    excerpt: "Essential modern JavaScript features every developer should know.",
+    excerpt:
+      "Essential modern JavaScript features every developer should know.",
     content: "ES6 brought many new features to JavaScript...",
     image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400",
     tags: ["JavaScript", "ES6", "Modern JS"],
@@ -110,7 +113,8 @@ const posts: Post[] = [
     title: "Web Accessibility Fundamentals",
     date: "2025-12-05",
     excerpt: "Building inclusive web experiences for all users.",
-    content: "Web accessibility ensures that websites are usable by everyone...",
+    content:
+      "Web accessibility ensures that websites are usable by everyone...",
     image: "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?w=400",
     tags: ["Accessibility", "Web Standards", "UX"],
     category: "Web Development",
@@ -159,27 +163,34 @@ const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const categories = useMemo(() => {
-    const cats = ["All", ...new Set(posts.map(post => post.category))];
+    const cats = ["All", ...new Set(posts.map((post) => post.category))];
     return cats;
   }, []);
 
   const filteredPosts = useMemo(() => {
-    return posts.filter(post => {
-      const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                           post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-      const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
+    return posts.filter((post) => {
+      const matchesSearch =
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.tags.some((tag) =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase()),
+        );
+      const matchesCategory =
+        selectedCategory === "All" || post.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
   }, [searchTerm, selectedCategory]);
 
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
-  const paginatedPosts = filteredPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+  const paginatedPosts = filteredPosts.slice(
+    startIndex,
+    startIndex + POSTS_PER_PAGE,
+  );
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -203,10 +214,10 @@ const Blog: React.FC = () => {
             </div>
 
             <div className="category-filters">
-              {categories.map(category => (
+              {categories.map((category) => (
                 <button
                   key={category}
-                  className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+                  className={`category-btn ${selectedCategory === category ? "active" : ""}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -216,7 +227,10 @@ const Blog: React.FC = () => {
           </div>
 
           <div className="blog-stats">
-            <p>{filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''} found</p>
+            <p>
+              {filteredPosts.length} post{filteredPosts.length !== 1 ? "s" : ""}{" "}
+              found
+            </p>
           </div>
 
           <div className="blog-posts">
@@ -235,15 +249,17 @@ const Blog: React.FC = () => {
                 Previous
               </button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-                <button
-                  key={page}
-                  className={`page-btn ${currentPage === page ? 'active' : ''}`}
-                  onClick={() => handlePageChange(page)}
-                >
-                  {page}
-                </button>
-              ))}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    className={`page-btn ${currentPage === page ? "active" : ""}`}
+                    onClick={() => handlePageChange(page)}
+                  >
+                    {page}
+                  </button>
+                ),
+              )}
 
               <button
                 className="page-btn"
