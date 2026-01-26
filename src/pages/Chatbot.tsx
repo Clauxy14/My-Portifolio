@@ -308,8 +308,8 @@ const Chatbot: React.FC = () => {
     <>
       <Header />
       <main className="chatbot">
+        <h1>AI Chat Assistant</h1>
         <div className="container">
-          <h1>AI Chat Assistant</h1>
           <div className="chat-layout">
             <div className="chat-section">
               <div className="chat-window">

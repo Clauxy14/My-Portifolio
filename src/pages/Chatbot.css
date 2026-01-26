@@ -32,10 +32,15 @@
   pointer-events: none;
 }
 
+.chatbot .container {
+  padding: 0;
+  max-width: none;
+}
+
 .chatbot h1 {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   color: var(--text);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -246,6 +251,7 @@
 .chat-section {
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 .chat-window {
@@ -293,7 +299,8 @@
 
 .sidebar-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
@@ -326,7 +333,7 @@
 /* Stats Grid */
 .stats-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -485,11 +492,6 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
-
-  .sidebar-card {
-    flex: 1;
-    min-width: 250px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -516,7 +518,8 @@
   }
 
   .sidebar-content {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .sidebar-card {
