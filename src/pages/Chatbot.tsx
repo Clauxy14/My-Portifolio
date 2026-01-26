@@ -317,7 +317,9 @@ const Chatbot: React.FC = () => {
                   {messages.map((msg, index) => (
                     <div key={index} className={`message ${msg.sender}`}>
                       <p>{msg.text}</p>
-                      <span className="timestamp">{formatTime(msg.timestamp)}</span>
+                      <span className="timestamp">
+                        {formatTime(msg.timestamp)}
+                      </span>
                     </div>
                   ))}
                   {isTyping && (
@@ -338,7 +340,10 @@ const Chatbot: React.FC = () => {
                     onKeyPress={(e) => e.key === "Enter" && handleSend()}
                     placeholder="Ask me anything about the portfolio..."
                   />
-                  <button onClick={handleSend} disabled={!input.trim() || isTyping}>
+                  <button
+                    onClick={handleSend}
+                    disabled={!input.trim() || isTyping}
+                  >
                     {isTyping ? "..." : "Send"}
                   </button>
                 </div>
@@ -394,11 +399,21 @@ const Chatbot: React.FC = () => {
                       <span className="contact-icon">💌</span>
                       <span>Get In Touch</span>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                    <a
+                      href="https://github.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
                       <span className="contact-icon">🐙</span>
                       <span>GitHub</span>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                    <a
+                      href="https://linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="contact-link"
+                    >
                       <span className="contact-icon">💼</span>
                       <span>LinkedIn</span>
                     </a>
@@ -408,16 +423,28 @@ const Chatbot: React.FC = () => {
                 <div className="sidebar-card">
                   <h3>💡 Ask Me About</h3>
                   <div className="quick-questions">
-                    <button className="quick-q-btn" onClick={() => setInput("Tell me about your projects")}>
+                    <button
+                      className="quick-q-btn"
+                      onClick={() => setInput("Tell me about your projects")}
+                    >
                       📁 Projects
                     </button>
-                    <button className="quick-q-btn" onClick={() => setInput("What technologies do you use?")}>
+                    <button
+                      className="quick-q-btn"
+                      onClick={() => setInput("What technologies do you use?")}
+                    >
                       🛠️ Tech Stack
                     </button>
-                    <button className="quick-q-btn" onClick={() => setInput("How can I contact you?")}>
+                    <button
+                      className="quick-q-btn"
+                      onClick={() => setInput("How can I contact you?")}
+                    >
                       📞 Contact
                     </button>
-                    <button className="quick-q-btn" onClick={() => setInput("What are your skills?")}>
+                    <button
+                      className="quick-q-btn"
+                      onClick={() => setInput("What are your skills?")}
+                    >
                       🎯 Skills
                     </button>
                   </div>

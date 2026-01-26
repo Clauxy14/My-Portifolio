@@ -1,13 +1,14 @@
 .chatbot {
   padding: 7rem 2rem;
   background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
-  min-height: 100vh;
+  height: 100vh;
   margin: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .chatbot::before {
@@ -42,10 +43,11 @@
 }
 
 .messages {
-  height: 500px;
+  flex: 1;
   overflow-y: auto;
   padding: 1.5rem;
   scroll-behavior: smooth;
+  min-height: 0; /* Allow flex shrinking */
 }
 
 .message {
@@ -237,6 +239,8 @@
   gap: 2rem;
   width: 100%;
   max-width: 1400px;
+  height: calc(100vh - 14rem); /* Account for padding */
+  align-items: start;
 }
 
 .chat-section {
@@ -250,17 +254,41 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Sidebar Styles */
 .sidebar-section {
-  position: sticky;
-  top: 2rem;
-  height: fit-content;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.5rem;
+}
+
+.sidebar-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-section::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.sidebar-section::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.sidebar-section::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }
 
 .sidebar-content {
@@ -276,7 +304,9 @@
   padding: 1.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .sidebar-card:hover {
@@ -438,11 +468,17 @@
   .chat-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
+    height: auto;
   }
 
   .sidebar-section {
-    position: static;
+    height: auto;
+    max-height: 300px;
     order: -1;
+  }
+
+  .chat-window {
+    height: 500px;
   }
 
   .sidebar-content {
@@ -457,12 +493,26 @@
 }
 
 @media (max-width: 768px) {
+  .chatbot {
+    padding: 6rem 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
   .chatbot h1 {
     font-size: 2.5rem;
   }
 
   .chat-layout {
     gap: 1rem;
+  }
+
+  .chat-window {
+    height: 400px;
+  }
+
+  .sidebar-section {
+    max-height: 250px;
   }
 
   .sidebar-content {
