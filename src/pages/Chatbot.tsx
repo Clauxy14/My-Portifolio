@@ -310,35 +310,119 @@ const Chatbot: React.FC = () => {
       <main className="chatbot">
         <div className="container">
           <h1>AI Chat Assistant</h1>
-          <div className="chat-window">
-            <div className="messages">
-              {messages.map((msg, index) => (
-                <div key={index} className={`message ${msg.sender}`}>
-                  <p>{msg.text}</p>
-                  <span className="timestamp">{formatTime(msg.timestamp)}</span>
+          <div className="chat-layout">
+            <div className="chat-section">
+              <div className="chat-window">
+                <div className="messages">
+                  {messages.map((msg, index) => (
+                    <div key={index} className={`message ${msg.sender}`}>
+                      <p>{msg.text}</p>
+                      <span className="timestamp">{formatTime(msg.timestamp)}</span>
+                    </div>
+                  ))}
+                  {isTyping && (
+                    <div className="typing-indicator">
+                      <div className="dot"></div>
+                      <div className="dot"></div>
+                      <div className="dot"></div>
+                      <span className="typing-text">AI is thinking...</span>
+                    </div>
+                  )}
+                  <div ref={messagesEndRef} />
                 </div>
-              ))}
-              {isTyping && (
-                <div className="typing-indicator">
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                  <div className="dot"></div>
-                  <span className="typing-text">AI is thinking...</span>
+                <div className="input-area">
+                  <input
+                    type="text"
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyPress={(e) => e.key === "Enter" && handleSend()}
+                    placeholder="Ask me anything about the portfolio..."
+                  />
+                  <button onClick={handleSend} disabled={!input.trim() || isTyping}>
+                    {isTyping ? "..." : "Send"}
+                  </button>
                 </div>
-              )}
-              <div ref={messagesEndRef} />
+              </div>
             </div>
-            <div className="input-area">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={(e) => e.key === "Enter" && handleSend()}
-                placeholder="Ask me anything about the portfolio..."
-              />
-              <button onClick={handleSend} disabled={!input.trim() || isTyping}>
-                {isTyping ? "..." : "Send"}
-              </button>
+            <div className="sidebar-section">
+              <div className="sidebar-content">
+                <div className="sidebar-card">
+                  <h3>🚀 Quick Stats</h3>
+                  <div className="stats-grid">
+                    <div className="stat-item">
+                      <span className="stat-number">50+</span>
+                      <span className="stat-label">Projects</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-number">3+</span>
+                      <span className="stat-label">Years Exp</span>
+                    </div>
+                    <div className="stat-item">
+                      <span className="stat-number">100%</span>
+                      <span className="stat-label">Passion</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="sidebar-card">
+                  <h3>💻 Tech Stack</h3>
+                  <div className="tech-tags">
+                    <span className="tech-tag">React</span>
+                    <span className="tech-tag">TypeScript</span>
+                    <span className="tech-tag">Node.js</span>
+                    <span className="tech-tag">CSS3</span>
+                    <span className="tech-tag">Vite</span>
+                    <span className="tech-tag">Git</span>
+                  </div>
+                </div>
+
+                <div className="sidebar-card">
+                  <h3>🎯 What I Do</h3>
+                  <ul className="services-list">
+                    <li>Modern Web Development</li>
+                    <li>Responsive Design</li>
+                    <li>UI/UX Implementation</li>
+                    <li>Performance Optimization</li>
+                    <li>Interactive Animations</li>
+                  </ul>
+                </div>
+
+                <div className="sidebar-card">
+                  <h3>📞 Let's Connect</h3>
+                  <div className="contact-links">
+                    <a href="#contact" className="contact-link">
+                      <span className="contact-icon">💌</span>
+                      <span>Get In Touch</span>
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                      <span className="contact-icon">🐙</span>
+                      <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-link">
+                      <span className="contact-icon">💼</span>
+                      <span>LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="sidebar-card">
+                  <h3>💡 Ask Me About</h3>
+                  <div className="quick-questions">
+                    <button className="quick-q-btn" onClick={() => setInput("Tell me about your projects")}>
+                      📁 Projects
+                    </button>
+                    <button className="quick-q-btn" onClick={() => setInput("What technologies do you use?")}>
+                      🛠️ Tech Stack
+                    </button>
+                    <button className="quick-q-btn" onClick={() => setInput("How can I contact you?")}>
+                      📞 Contact
+                    </button>
+                    <button className="quick-q-btn" onClick={() => setInput("What are your skills?")}>
+                      🎯 Skills
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
