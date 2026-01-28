@@ -2,11 +2,16 @@
   padding: 5rem 2rem;
   background: var(--bg);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blog-header {
   text-align: center;
   margin-bottom: 3rem;
+  max-width: 900px;
+  width: 100%;
 }
 
 .blog-header h1 {
@@ -27,10 +32,14 @@
   flex-direction: column;
   gap: 2rem;
   margin-bottom: 2rem;
+  max-width: 900px;
+  width: 100%;
+  align-items: center;
 }
 
 .search-bar {
-  max-width: 400px;
+  max-width: 500px;
+  width: 100%;
 }
 
 .search-bar input {
@@ -83,6 +92,8 @@
   margin-bottom: 2rem;
   color: var(--text-alt);
   font-size: 1rem;
+  max-width: 900px;
+  width: 100%;
 }
 
 .blog-posts {
@@ -90,6 +101,8 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .pagination {
