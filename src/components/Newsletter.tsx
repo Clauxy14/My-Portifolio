@@ -20,7 +20,10 @@ export default function Newsletter() {
       <div className="newsletter-container">
         <div className="newsletter-content">
           <h2 className="newsletter-title">Never Miss an Update</h2>
-          <p className="newsletter-subtitle">Subscribe to get the latest insights, projects, and stories directly to your inbox.</p>
+          <p className="newsletter-subtitle">
+            Subscribe to get the latest insights, projects, and stories directly
+            to your inbox.
+          </p>
 
           {submitted ? (
             <div className="newsletter-success">
@@ -40,12 +43,21 @@ export default function Newsletter() {
                 />
                 <button type="submit" className="newsletter-button">
                   <span>Subscribe</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
-              <p className="form-hint">We respect your privacy. Unsubscribe at any time.</p>
+              <p className="form-hint">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </form>
           )}
         </div>
