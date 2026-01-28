@@ -345,17 +345,11 @@
   padding: 0.8rem 0.6rem;
   background: var(--bg-alt);
   border-radius: 10px;
-  transition: background 0.3s ease;
   min-height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.3rem;
-}
-
-.stat-item:hover {
-  background: var(--primary);
-  color: white;
 }
 
 .stat-number {
@@ -365,18 +359,10 @@
   color: var(--primary);
 }
 
-.stat-item:hover .stat-number {
-  color: white;
-}
-
 .stat-label {
   font-size: 0.75rem;
   color: var(--text);
   opacity: 0.8;
-}
-
-.stat-item:hover .stat-label {
-  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Tech Tags */
