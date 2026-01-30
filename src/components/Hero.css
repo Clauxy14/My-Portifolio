@@ -224,3 +224,44 @@
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    padding: 2rem 1rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.4rem;
+  }
+
+  .hero-image {
+    padding: 1rem 0 2rem;
+  }
+
+  .hero-image img {
+    width: 180px;
+    height: 180px;
+    border-width: 3px;
+  }
+
+  .floating-shape {
+    display: none;
+  }
+}

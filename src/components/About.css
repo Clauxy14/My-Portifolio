@@ -51,3 +51,31 @@
 .stat p {
   color: var(--text-alt);
 }
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    padding: 1rem;
+    width: 140px;
+  }
+
+  .stat h3 {
+    font-size: 1.35rem;
+  }
+}
