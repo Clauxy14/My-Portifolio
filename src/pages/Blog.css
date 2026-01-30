@@ -140,21 +140,137 @@
   cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-  .blog-controls {
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 1024px) {
+  .blog {
+    padding: 4rem 1.5rem;
   }
 
-  .category-filters {
-    justify-content: center;
-  }
-
-  .blog-posts {
-    grid-template-columns: 1fr;
+  .blog-header {
+    max-width: 100%;
+    margin-bottom: 2rem;
   }
 
   .blog-header h1 {
     font-size: 2.5rem;
+  }
+
+  .blog-posts {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog {
+    padding: 3rem 1rem;
+    align-items: center;
+  }
+
+  .blog-header {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-header p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .blog-controls {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  .search-bar {
+    max-width: 100%;
+  }
+
+  .search-bar input {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .category-filters {
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .category-btn {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .blog-stats {
+    font-size: 0.9rem;
+  }
+
+  .blog-posts {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 100%;
+  }
+
+  .pagination {
+    gap: 0.35rem;
+    margin-top: 2rem;
+  }
+
+  .page-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .blog-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-header p {
+    font-size: 0.9rem;
+  }
+
+  .blog-controls {
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .search-bar input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
+  }
+
+  .category-filters {
+    gap: 0.3rem;
+  }
+
+  .category-btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+
+  .blog-posts {
+    gap: 1rem;
+  }
+
+  .page-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
   }
 }
