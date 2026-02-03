@@ -12,12 +12,13 @@ export default function Newsletter() {
   const [error, setError] = useState("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value, type } = e.target as HTMLInputElement;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
@@ -50,8 +51,8 @@ export default function Newsletter() {
         <div className="newsletter-content">
           <h2 className="newsletter-title">Stay Connected</h2>
           <p className="newsletter-subtitle">
-            Get weekly updates on new projects, insights, and tech stories delivered
-            straight to your inbox.
+            Get weekly updates on new projects, insights, and tech stories
+            delivered straight to your inbox.
           </p>
 
           {submitted ? (
