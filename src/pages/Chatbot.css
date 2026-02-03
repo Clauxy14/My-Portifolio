@@ -1,6 +1,6 @@
 .chatbot {
-  padding: 7rem 2rem;
-  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, var(--bg) 0%, #1a1f3a 50%, var(--bg-alt) 100%);
   height: 100vh;
   margin: auto;
   display: flex;
@@ -21,12 +21,12 @@
   background:
     radial-gradient(
       circle at 20% 80%,
-      rgba(100, 200, 255, 0.1) 0%,
+      rgba(99, 102, 241, 0.15) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgba(255, 100, 200, 0.1) 0%,
+      rgba(168, 85, 247, 0.12) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -59,49 +59,33 @@
 .message {
   margin-bottom: 1.5rem;
   padding: 1rem 1.5rem;
-  border-radius: 18px;
+  border-radius: 14px;
   max-width: 75%;
   position: relative;
   animation: messageSlideIn 0.3s ease-out;
   word-wrap: break-word;
-  line-height: 1.4;
+  line-height: 1.5;
+  backdrop-filter: blur(10px);
 }
 
 .message::before {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
+  display: none;
 }
 
 .message.user {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: #fff;
   margin-left: auto;
   text-align: right;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-}
-
-.message.user::before {
-  right: 20px;
-  border-top: 8px solid var(--primary);
-  border-bottom: none;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .message.bot {
-  background: var(--bg);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.message.bot::before {
-  left: 20px;
-  border-top: 8px solid var(--bg);
-  border-bottom: none;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .typing-indicator {
@@ -130,9 +114,9 @@
 .input-area {
   display: flex;
   padding: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(10px);
   flex-shrink: 0;
   min-height: 80px;
 }
@@ -140,36 +124,46 @@
 .input-area input {
   flex: 1;
   padding: 1rem 1.5rem;
-  border: 2px solid transparent;
-  border-radius: 25px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 10px;
   margin-right: 1rem;
-  background: var(--bg);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text);
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   outline: none;
 }
 
+.input-area input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 .input-area input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
 .input-area button {
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   color: #fff;
   border: none;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
 .input-area button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 12px 28px rgba(99, 102, 241, 0.4);
+}
+
+.input-area button:active {
+  transform: translateY(0);
 }
 
 .message p {
